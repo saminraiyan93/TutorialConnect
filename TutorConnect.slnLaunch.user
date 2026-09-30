@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "AppLayerAPI\\AppLayerAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "AppLayerMVC\\AppLayerMVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

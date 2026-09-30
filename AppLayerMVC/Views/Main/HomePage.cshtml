@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center">
+        <h1>Welcome to AIUB TutorConnect</h1>
+
+        <p class="lead">
+            Find tutors, offer tutoring, and connect with AIUB students.
+        </p>
+
+        <a class="btn btn-primary"
+           asp-controller="TutorOffering"
+           asp-action="Index">
+            Find a Tutor
+        </a>
+
+        <a class="btn btn-outline-primary"
+           asp-controller="TutorOffering"
+           asp-action="Create">
+            Offer Tutoring
+        </a>
+    </div>
+
+    <hr class="my-5" />
+
+    <section>
+        <h2 class="text-center mb-4">What would you like to do?</h2>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <div class="card p-4 h-100">
+                    <h3>Find Learning Help</h3>
+
+                    <p>
+                        Browse tutors who are offering help or see students
+                        who are looking for tutoring.
+                    </p>
+
+                    <div class="d-grid gap-2">
+
+                        <a class="btn btn-primary"
+                           asp-controller="TutorOffering"
+                           asp-action="GetAllTutorOfferings">
+                            Find a Tutor
+                        </a>
+
+                        <a class="btn btn-outline-primary"
+                           asp-controller="StudentRequest"
+                           asp-action="Index">
+                            See Students Who Need Help
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="card p-4 h-100">
+                    <h3>Teach or Request Tutoring</h3>
+
+                    <p>
+                        Share the topics you can teach or create a request
+                        for the academic help you need.
+                    </p>
+
+                    <div class="d-grid gap-2">
+
+                        <a class="btn btn-primary"
+                           asp-controller="TutorOffering"
+                           asp-action="Create">
+                            Offer Tutoring
+                        </a>
+
+                        <a class="btn btn-outline-primary"
+                           asp-controller="StudentRequest"
+                           asp-action="Create">
+                            Request Tutoring Help
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="my-5" />
+
+    <div class="text-center">
+        <h2>How AIUB TutorConnect Works</h2>
+
+        <p>1. Search for a tutor or view student requests.</p>
+        <p>2. View the course, topics, price, and availability.</p>
+        <p>3. Contact the tutor or student through the provided contact link.</p>
+    </div>
+
+</div>
