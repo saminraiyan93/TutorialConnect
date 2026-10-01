@@ -49,8 +49,6 @@ public class AccountController : Controller
                 UserName = RegistrationModel.UserName,
                 Email = RegistrationModel.Email,
                 Password = RegistrationModel.Password,
-                AccountStatus = RegistrationModel.AccountStatus,
-                Role = RegistrationModel.Role,
                 CreatedAt = DateTime.Now
             };
 
@@ -69,9 +67,6 @@ public class AccountController : Controller
             }
             catch(Exception ex)
             {
-                // Get the inner exception details
-                var innerException = ex.InnerException?.Message ?? ex.Message;
-                ModelState.AddModelError("", $"An error occurred: {innerException}");
                 // Handle unexpected errors
                 ModelState.AddModelError("", $"An error occurred: {ex.Message}");
             }    

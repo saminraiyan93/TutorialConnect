@@ -19,5 +19,11 @@ namespace AppLayerMVC.Models.Account
         [Required]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
+
+        [Required]  // Custom annotatins to be added
+        public string Role { get; set; }
+
+        [Required]  // Custom annotations to be added
+        public string AccountStatus { get; set; }
     }
 }
