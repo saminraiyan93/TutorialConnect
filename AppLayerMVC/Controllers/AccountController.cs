@@ -4,12 +4,15 @@ namespace AppLayerAPI.Controllers;
 using BLL.Service;
 using BLL.Models;
 
+using Microsoft.AspNetCore.Session;
+
+
 public class AccountController : Controller
 {
 
     UserService service;
     LoginService login_service;
-    //IMapper mapper;       // To be added later
+    //IMapper mapper;       // To be added later (if needed)
 
     public AccountController(UserService service, LoginService login_service)
     {
@@ -34,11 +37,11 @@ public class AccountController : Controller
                 var User = login_service.GetUserByEmailAndPassword(LoginModel.Email, LoginModel.Password);
                 if(User != null)
                 {
-                    // TODO: Store user info in session
-                    // HttpContext.Session.SetString("UserId", user.UserId.ToString());
-                    // HttpContext.Session.SetString("UserName", user.UserName);
-                    // HttpContext.Session.SetString("Email", user.Email);
-                    // HttpContext.Session.SetString("Role", user.Role);
+                    // Store user info in session
+                    HttpContext.Session.SetString("UserId", User.UserId.ToString());
+                    HttpContext.Session.SetString("UserName", User.UserName);
+                    HttpContext.Session.SetString("Email", User.Email);
+                    HttpContext.Session.SetString("Role", User.Role);
 
                     return RedirectToAction("HomePage", "Main");
                 }

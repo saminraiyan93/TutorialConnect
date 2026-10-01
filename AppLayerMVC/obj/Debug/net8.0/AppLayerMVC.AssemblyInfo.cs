@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppLayerMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bda5cf62b9f1ef4a9b315ed575de7eabb1bc59de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9c343c6aa44608e2dc1aa5e49bad2eb96fb32a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppLayerMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppLayerMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
