@@ -57,5 +57,12 @@ namespace DAL.Repository
             db.Users.Remove(data);
             return db.SaveChanges() > 0;
         }
+
+
+        // FOR MVC Login
+        public User GetUserByEmailAndPassword(string email, string password)
+        {
+            return db.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+        }
     }
 }

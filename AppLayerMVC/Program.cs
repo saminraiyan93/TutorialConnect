@@ -32,6 +32,10 @@ builder.Services.AddScoped<DepartmentService>();
 builder.Services.AddScoped<StudentRequestService>();
 builder.Services.AddScoped<TutorOfferingService>();
 
+// MVC 
+builder.Services.AddScoped<LoginService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

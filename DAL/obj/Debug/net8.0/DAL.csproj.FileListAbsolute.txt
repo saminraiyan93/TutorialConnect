@@ -12,3 +12,4 @@ C:\Users\amazi\OneDrive\Desktop\TutorConnect\DAL\obj\Debug\net8.0\ref\DAL.dll
 C:\Users\amazi\OneDrive\Desktop\TutorConnect\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
 C:\Users\amazi\OneDrive\Desktop\TutorConnect\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
 C:\Users\amazi\OneDrive\Desktop\TutorConnect\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
+C:\Users\amazi\OneDrive\Desktop\TutorConnect\DAL\obj\Debug\net8.0\DAL.sourcelink.json

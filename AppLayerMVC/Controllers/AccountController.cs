@@ -8,11 +8,13 @@ public class AccountController : Controller
 {
 
     UserService service;
+    LoginService login_service;
     //IMapper mapper;       // To be added later
 
-    public AccountController(UserService service)
+    public AccountController(UserService service, LoginService login_service)
     {
         this.service = service;
+        this.login_service = login_service;
     }
 
 
@@ -23,11 +25,37 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult Login(LoginModel LoginModel)
+    public IActionResult Login(LoginModel LoginModel)   // variable name mapping
     {
         if (ModelState.IsValid)
         {
-            return RedirectToAction("HomePage", "Main");
+            try
+            {
+                var User = login_service.GetUserByEmailAndPassword(LoginModel.Email, LoginModel.Password);
+                if(User != null)
+                {
+                    // TODO: Store user info in session
+                    // HttpContext.Session.SetString("UserId", user.UserId.ToString());
+                    // HttpContext.Session.SetString("UserName", user.UserName);
+                    // HttpContext.Session.SetString("Email", user.Email);
+                    // HttpContext.Session.SetString("Role", user.Role);
+
+                    return RedirectToAction("HomePage", "Main");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid email or password");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Get the inner exception details
+                var innerException = ex.InnerException?.Message ?? ex.Message;
+                ModelState.AddModelError("", $"An error occurred: {innerException}");
+                // Handle unexpected errors
+                ModelState.AddModelError("", $"An error occurred: {ex.Message}");
+            }
+
         }
 
         return View(LoginModel);
