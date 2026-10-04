@@ -5,16 +5,16 @@
 }
 
 @Html.ValidationSummary()
-
+<h1>Login</h1>
 <form action="" method="post">
     <input type="text" name="Email" value="@Model.Email" placeholder="Enter Email" class="form-control" />
     <span class="text-danger">@Html.ValidationMessage("Email")</span>
-
+    <br />
     <input type="password" name="Password" placeholder="Enter Password" class="form-control" />
     <span class="text-danger">@Html.ValidationMessage("Password")</span>
-
+    <br />
     <input type="submit" value="Login" class="btn btn-primary" />
 
 </form>
 
-<a href="/account/registration"> Create a new account</a>
+<a href="/account/registration"> Don't Have an account? Create a new account </a>

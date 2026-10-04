@@ -3985,11 +3985,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorConnect\\DAL\\DAL.csproj",
+      "projectUniqueName": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorialConnect\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorConnect\\DAL\\DAL.csproj",
+      "projectPath": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorialConnect\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\amazi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorConnect\\DAL\\obj\\",
+      "outputPath": "C:\\Users\\amazi\\OneDrive\\Desktop\\TutorialConnect\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
