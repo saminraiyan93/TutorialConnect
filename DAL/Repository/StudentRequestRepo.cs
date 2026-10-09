@@ -17,6 +17,17 @@ namespace DAL.Repository
             this.db = db;
         }
 
+        public StudentRequest GetStudentRequestWithInfoById(int id)
+        {
+            var data = db.StudentRequests
+                .Include(sr => sr.User)
+                .Include(sr => sr.Course)
+                    .ThenInclude(c => c.Department)
+                .FirstOrDefault(sr => sr.StudentRequestId == id);
+
+            return data;
+        }
+
         public List<StudentRequest> GetAllStudentRequestsWithInfo()
         {
             var data = (from sr in db.StudentRequests.Include(sr => sr.User)

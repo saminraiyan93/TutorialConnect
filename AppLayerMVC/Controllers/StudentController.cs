@@ -1,40 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using BLL.Service;
+﻿using AppLayerMVC.Models;
 using BLL.Models;
-using AppLayerMVC.Models;
+using BLL.Service;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AppLayerMVC.Controllers
 {
-    public class TutorOfferingController : Controller
+    public class StudentController : Controller
     {
-        TutorOfferingService service;
-        CourseService course_service;
-        public TutorOfferingController(TutorOfferingService service, CourseService course_service)
-        {
-            this.service = service;
-            this.course_service = course_service;
+        StudentRequestService studentRequestService;
+        CourseService courseService;
+        TutorOfferingService tutorOfferingService;
 
-        }
-        public IActionResult GetAllTutorOfferings()
+        public StudentController(StudentRequestService studentRequestService, CourseService courseService, TutorOfferingService tutorOfferingService)
         {
-            var data = service.GetAllTutorOfferingsWithInfo();
-            return View(data);
+            this.studentRequestService = studentRequestService;
+            this.courseService = courseService;
+            this.tutorOfferingService = tutorOfferingService;
         }
+        public IActionResult Index()
+        {
+            var studentRequests = studentRequestService.GetAllStudentRequestsWithInfo();
+            return View(studentRequests);
+        }
+
+        public IActionResult StudentRequestViewDetails(int id)
+        {
+            var studentRequest = studentRequestService.GetStudentRequestWithInfoById(id);
+            return View(studentRequest);
+        }
+
 
         [HttpGet]
-        public IActionResult CreateTutorOfferings()
+        public IActionResult PostStudentRequest()   // User (Teacher) Requests Students [Basically Tutions]
         {
-            var courses = course_service.GetAllCourseWithInfo();
+            var courses = courseService.GetAllCourseWithInfo();
             ViewBag.Courses = courses;
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             return View(new TutorOfferingViewModel());
         }
 
         [HttpPost]
-        public IActionResult CreateTutorOfferings(TutorOfferingViewModel TutorOfferingViewModel)
+        public IActionResult PostStudentRequest(TutorOfferingViewModel TutorOfferingViewModel)
         {
             var userId = HttpContext.Session.GetString("UserId");
-            
+
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
             if (string.IsNullOrEmpty(userId))
             {
@@ -43,8 +52,8 @@ namespace AppLayerMVC.Controllers
 
             if (!ModelState.IsValid)
             {
-                    ViewBag.Courses = course_service.GetAllCourseWithInfo();
-                    return View(TutorOfferingViewModel);
+                ViewBag.Courses = courseService.GetAllCourseWithInfo();
+                return View(TutorOfferingViewModel);
             }
 
             if (TutorOfferingViewModel.PricingType == "Free")
@@ -69,16 +78,16 @@ namespace AppLayerMVC.Controllers
 
             };
 
-            var data = service.CreateTutorOffering(tutorOffering);
+            var data = tutorOfferingService.CreateTutorOffering(tutorOffering);
 
             if (data)
             {
-                return RedirectToAction("GetAllTutorOfferings");
+                return RedirectToAction("Index", "Tutor");
             }
 
 
             ModelState.AddModelError("", "Unable to create tutor offering. Please try again.");
-            ViewBag.Courses = course_service.GetAllCourseWithInfo();
+            ViewBag.Courses = courseService.GetAllCourseWithInfo();
             return View(TutorOfferingViewModel);
         }
     }

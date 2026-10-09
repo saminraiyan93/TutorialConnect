@@ -15,6 +15,13 @@ namespace AppLayerAPI.Controllers
             this.service = service;
         }
 
+        [HttpGet("info/{id}")]
+        public IActionResult GetTutorOfferingWithInfoById(int id)
+        {
+            var data = service.GetTutorOfferingWithInfoById(id);
+            return Ok(data);
+        }
+
         [HttpGet("all/info")]
         public IActionResult GetAllTutorOfferingsWithInfo()     // Tutor Offerings with UserName and CourseName
         {

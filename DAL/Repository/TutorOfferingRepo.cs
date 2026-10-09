@@ -25,6 +25,17 @@ namespace DAL.Repository
             return data;
         }
 
+        public TutorOffering GetTutorOfferingWithInfoById(int id)
+        {
+            var data = db.TutorOfferings
+                .Include(t => t.User)
+                .Include(t => t.Course)
+                    .ThenInclude(c => c.Department)
+                .FirstOrDefault(t => t.TutorOfferingId == id);
+
+            return data;
+        }
+
         public List<TutorOffering> GetAllTutorOfferings()
         {
             return db.TutorOfferings.ToList();

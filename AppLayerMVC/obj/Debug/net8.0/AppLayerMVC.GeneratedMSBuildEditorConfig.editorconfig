@@ -32,14 +32,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Main/HomePage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxIb21lUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,12 +40,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/TutorOffering/CreateTutorOfferings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JPZmZlcmluZ1xDcmVhdGVUdXRvck9mZmVyaW5ncy5jc2h0bWw=
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Student/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/TutorOffering/GetAllTutorOfferings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JPZmZlcmluZ1xHZXRBbGxUdXRvck9mZmVyaW5ncy5jc2h0bWw=
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Student/PostStudentRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxQb3N0U3R1ZGVudFJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Student/StudentRequestViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTdHVkZW50UmVxdWVzdFZpZXdEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Tutor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Tutor/PostTutoringRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcUG9zdFR1dG9yaW5nUmVxdWVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/Tutor/TutorOfferViewDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcVHV0b3JPZmZlclZpZXdEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/amazi/OneDrive/Desktop/TutorialConnect/AppLayerMVC/Views/_ViewImports.cshtml]

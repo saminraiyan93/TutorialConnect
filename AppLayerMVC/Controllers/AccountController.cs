@@ -43,7 +43,7 @@ public class AccountController : Controller
                     HttpContext.Session.SetString("Email", User.Email);
                     HttpContext.Session.SetString("Role", User.Role);
 
-                    return RedirectToAction("HomePage", "Main");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -110,4 +110,6 @@ public class AccountController : Controller
 
         return View(RegistrationModel);
     }
+
+    // LOGOUT Logic to be added
 }

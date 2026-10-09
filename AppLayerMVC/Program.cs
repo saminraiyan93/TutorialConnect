@@ -39,7 +39,7 @@ builder.Services.AddScoped<LoginService>();
 builder.Services.AddDistributedMemoryCache(); // Stores session data in RAM
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session expiration 
+    options.IdleTimeout = TimeSpan.FromMinutes(10080); // Session expiration 
     options.Cookie.HttpOnly = true; // Protects the session cookie from client-side scripts
     options.Cookie.IsEssential = true; // Crucial for GDPR/cookie consent compliance
 });
@@ -68,6 +68,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Main}/{action=HomePage}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();

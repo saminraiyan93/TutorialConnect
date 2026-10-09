@@ -21,6 +21,13 @@ namespace BLL.Service
             this.mapper = mapper;
         }
 
+        public StudentRequestInfoModel GetStudentRequestWithInfoById(int id)
+        {
+            var data = repo.GetStudentRequestWithInfoById(id);
+            var mappedObj = mapper.Map<StudentRequestInfoModel>(data);
+            return mappedObj;
+        }
+
         public List<StudentRequestInfoModel> GetAllStudentRequestsWithInfo()
         {
             var data = repo.GetAllStudentRequestsWithInfo();

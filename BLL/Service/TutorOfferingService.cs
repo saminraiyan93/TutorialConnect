@@ -28,6 +28,13 @@ namespace BLL.Service
             return mappedObj;
         }
 
+        public TutorOfferingInfoModel GetTutorOfferingWithInfoById(int id)
+        {
+            var data = repo.GetTutorOfferingWithInfoById(id);
+            var mappedObj = mapper.Map<TutorOfferingInfoModel>(data);
+            return mappedObj;
+        }
+
         public List<TutorOfferingModel> GetAllTutorOfferings()
         {
             var data = repo.GetAllTutorOfferings();
