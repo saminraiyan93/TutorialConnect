@@ -30,9 +30,12 @@ namespace DAL.Repository
 
         public List<StudentRequest> GetAllStudentRequestsWithInfo()
         {
-            var data = (from sr in db.StudentRequests.Include(sr => sr.User)
-                       .Include(sr => sr.Course).ThenInclude(c => c.Department)
-                       select sr).ToList();
+            var data = (from sr in db.StudentRequests
+                        .Include(sr => sr.User)
+                       .Include(sr => sr.Course)
+                       .ThenInclude(c => c.Department)
+                       .OrderByDescending(sr => sr.CreatedAt)
+                        select sr).ToList();
             return data;
         }
 

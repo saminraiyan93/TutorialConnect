@@ -19,8 +19,10 @@ namespace DAL.Repository
 
         public List<TutorOffering> GetAllTutorOfferingsWithInfo()
         {
-            var data = (from t_o in db.TutorOfferings.Include(t_o => t_o.User)
+            var data = (from t_o in db.TutorOfferings
+                        .Include(t_o => t_o.User)
                         .Include(t_o => t_o.Course).ThenInclude(c => c.Department)
+                        .OrderByDescending(t_o => t_o.CreatedAt)
                         select t_o).ToList();
             return data;
         }

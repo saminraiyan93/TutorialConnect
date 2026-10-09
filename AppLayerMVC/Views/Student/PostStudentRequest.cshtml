@@ -19,6 +19,13 @@
 
             <form asp-action="PostStudentRequest" method="post">
 
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <div asp-validation-summary="All"></div>
+                    </div>
+                }
+
                 <!-- Tutor Information -->
                 <div class="mb-5">
 

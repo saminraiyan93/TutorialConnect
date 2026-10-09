@@ -85,6 +85,7 @@ namespace AppLayerMVC.Controllers
 
             if (data)
             {
+                TempData["SuccessMessage"] = "Your tutoring request was posted successfully.";
                 return RedirectToAction("Index", "Student");
             }
 
