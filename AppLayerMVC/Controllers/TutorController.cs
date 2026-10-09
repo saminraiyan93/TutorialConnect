@@ -1,6 +1,7 @@
 ﻿using AppLayerMVC.Models;
 using BLL.Models;
 using BLL.Service;
+using AppLayerMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppLayerMVC.Controllers
@@ -32,54 +33,65 @@ namespace AppLayerMVC.Controllers
 
 
 
-        //[HttpGet]
-        //public IActionResult PostTutoringRequest()
-        //{
-        //    var courses = courseService.GetAllCourseWithInfo();
-        //    ViewBag.Courses = courses;
-        //    ViewBag.UserName = HttpContext.Session.GetString("UserName");
+        [HttpGet]
+        public IActionResult PostTutoringRequest()
+        {
+            var courses = courseService.GetAllCourseWithInfo();
+            ViewBag.Courses = courses;
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
 
-        //    return View(new StudentRequestModel());
-        //}
+            return View(new StudentRequestViewModel());
+        }
 
-        //[HttpPost]
-        //public IActionResult PostTutoringRequest(StudentRequestModel StudentRequestModel)
-        //{
-        //    var userId = HttpContext.Session.GetString("UserId");
+        [HttpPost]
+        public IActionResult PostTutoringRequest(StudentRequestViewModel StudentRequestViewModel)
+        {
+            var userId = HttpContext.Session.GetString("UserId");
 
-        //    ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            ViewBag.UserName = HttpContext.Session.GetString("UserName");
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-        //    if (string.IsNullOrEmpty(userId))
-        //    {
-        //        return RedirectToAction("Login", "Account");
-        //    }
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Courses = courseService.GetAllCourseWithInfo();
+                return View(StudentRequestViewModel);
+            }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        ViewBag.Courses = courseService.GetAllCourseWithInfo();
-        //        return View(StudentRequestModel);
-        //    }
+            if (StudentRequestViewModel.BudgetType == "Free")
+            {
+                StudentRequestViewModel.BudgetPerLecture = 0;
+            }
 
-        //    if (StudentRequestModel.BudgetType == "Free")
-        //    {
-        //        StudentRequestModel.BudgetPerLecture = 0;
-        //    }
+            var studentRequest = new StudentRequestModel
+            {
+                UserId = Convert.ToInt32(userId),
+                CourseId = StudentRequestViewModel.CourseId,
+                CoverageType = StudentRequestViewModel.CoverageType,
+                TopicDescription = StudentRequestViewModel.TopicDescription,
+                PostTitle = StudentRequestViewModel.PostTitle,
+                TeachingMode = StudentRequestViewModel.TeachingMode,
+                BudgetType = StudentRequestViewModel.BudgetType,
+                BudgetPerLecture = StudentRequestViewModel.BudgetPerLecture,
+                Availability = StudentRequestViewModel.Availability,
+                ConnectVia = StudentRequestViewModel.ConnectVia,
+                ConnectValue = StudentRequestViewModel.ConnectValue,
+                PostStatus = "Active"
+            };
 
-        //    StudentRequestModel.UserId = Convert.ToInt32(userId);
-        //    StudentRequestModel.PostStatus = "Active";
+            var data = studentRequestService.CreateStudentRequest(studentRequest);
 
-        //    var data = studentRequestService.CreateStudentRequest(StudentRequestModel);
+            if (data)
+            {
+                return RedirectToAction("Index", "Student");
+            }
 
-        //    if (data)
-        //    {
-        //        return RedirectToAction("Index", "Student");
-        //    }
-
-        //    ModelState.AddModelError("", "Unable to post tutoring request. Please try again.");
-        //    ViewBag.Courses = courseService.GetAllCourseWithInfo();
-
-        //    return View(StudentRequestModel);
-        //}
+            ModelState.AddModelError("", "Unable to create tutoring request. Please try again.");
+            ViewBag.Courses = courseService.GetAllCourseWithInfo();
+            return View(StudentRequestViewModel);
+        }
 
     }
 }
